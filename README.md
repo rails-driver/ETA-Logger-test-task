@@ -9,3 +9,11 @@ Execute the next commands:
 docker-compose up -d
 docker-compose exec backend rails s -b 0.0.0.0
 ```
+
+
+# Tests
+
+Run tests:
+```bash
+docker-compose exec backend rspec
+```
