@@ -1,24 +1,11 @@
-# README
+# EtaLogger
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development
 
-Things you may want to cover:
+### Up and run
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Execute the next commands:
+```bash
+docker-compose up -d
+docker-compose exec backend rails s -b 0.0.0.0
+```
