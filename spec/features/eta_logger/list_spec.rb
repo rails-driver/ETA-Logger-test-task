@@ -55,4 +55,24 @@ describe 'ETALogger list' do
       end
     end
   end
+
+  context 'log entry is added in background' do
+    before do
+      fill_in 'agent_id', with: 1003
+      click_button 'Search'
+
+      assert_text 'No records have been logged'
+
+      create_log_entry(agent_id: 1003, msg: 'Test 1003')
+    end
+
+    it 'append new row in table' do
+      content do
+        within 'table tbody' do
+          assert_text 'Test 1003'
+        end
+        assert_no_text 'No records have been logged'
+      end
+    end
+  end
 end

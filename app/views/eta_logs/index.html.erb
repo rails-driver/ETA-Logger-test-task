@@ -10,11 +10,5 @@
     Please enter agent ID in search form to see logs
   <% end %>
 <% else %>
-  <% if @logs.blank? %>
-    <%= render 'shared/full_page_notification' do %>
-      No records have been logged
-    <% end %>
-  <% else %>
-    <%= render 'logs_table' %>
-  <% end %>
+  <%= render 'logs_table' %>
 <% end %>

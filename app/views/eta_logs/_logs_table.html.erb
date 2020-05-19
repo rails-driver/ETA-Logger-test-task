@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table id="eta_logs_table" class="table table-striped">
   <thead>
   <tr>
     <th>Message</th>
@@ -6,11 +6,14 @@
   </tr>
   </thead>
   <tbody>
-  <% @logs.each do |log| %>
-    <tr>
-      <td><%= log[:msg] %></td>
-      <td><%= format_date log[:created_at] %></td>
+  <% if @logs.blank? %>
+    <tr class="no-records-found">
+      <td colspan="2" class="text-muted text-center">No records have been logged</td>
     </tr>
+  <% else %>
+    <% @logs.each do |log| %>
+      <%= render 'log', log: log %>
+    <% end %>
   <% end %>
   </tbody>
 </table>

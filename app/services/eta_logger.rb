@@ -12,6 +12,8 @@ class EtaLogger
       multi.rpush(key, Marshal.dump(log_entry))
       multi.expire(key, 7.days.seconds)
     end
+    ActiveSupport::Notifications.instrument 'eta_logs.created', log_entry.merge(agent_id: agent_id)
+
     log_entry
   end
 end
