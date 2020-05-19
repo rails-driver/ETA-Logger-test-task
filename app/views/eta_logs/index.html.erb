@@ -1,0 +1,20 @@
+<% content_for :header do %>
+  <% form_tag(root_path, method: :get, class: 'form-inline my-2 my-lg-0 ml-auto') do %>
+    <%= text_field_tag :agent_id, params[:agent_id], class: 'form-control mr-sm-2', placeholder: 'Agent ID'  %>
+    <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
+  <% end %>
+<% end %>
+
+<% if @logs.nil? %>
+  <%= render 'shared/full_page_notification' do %>
+    Please enter agent ID in search form to see logs
+  <% end %>
+<% else %>
+  <% if @logs.blank? %>
+    <%= render 'shared/full_page_notification' do %>
+      No records have been logged
+    <% end %>
+  <% else %>
+    <%= render 'logs_table' %>
+  <% end %>
+<% end %>

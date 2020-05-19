@@ -13,8 +13,10 @@ services:
     user: 1000:1000
     working_dir: /var/www
     environment:
-      REDIS_URL: redis://redis:6379/0
-      TEST_REDIS_URL: redis://redis:6379/1
+      REDIS_URL: redis://redis:6379
+      TEST_REDIS_URL: redis://test_redis:6379
       DISPLAY: unix:0
   redis:
+    image: redis:6-alpine
+  test_redis:
     image: redis:6-alpine
